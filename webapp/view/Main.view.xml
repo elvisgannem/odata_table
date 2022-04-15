@@ -27,6 +27,9 @@
 									<Label text="Avaliação"/>
 								</Column>
 								<Column  hAlign="Center">
+									<Label text="Data de Lançamento"/>
+								</Column>
+								<Column  hAlign="Center">
 									<Label text="Preço"/>
 								</Column>
 							</columns>
@@ -37,6 +40,15 @@
 										<Text text="{ProductsModel>Name}" wrapping="false"/>
 										<Text text="{ProductsModel>Description}" wrapping="false"/>
 										<RatingIndicator value="{ProductsModel>Rating}" wrapping="false"/>
+										<Text 
+											text="{
+												path: 'ProductsModel>ReleaseDate',
+												type: 'sap.ui.model.type.Date',
+												formatOptions: {
+												pattern: 'dd/MM/YYYY'
+												}
+												}" 
+											wrapping="false"/>
 										<Text text="{ProductsModel>Price}" wrapping="false"/>
 									</cells>
 								</ColumnListItem>
