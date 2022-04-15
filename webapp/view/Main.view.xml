@@ -4,7 +4,7 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<Table sticky="ColumnHeaders" items="{
+						<Table id="table" sticky="ColumnHeaders" items="{
 							path: 'ProductsModel>/',
 							sorter: [
 							{
@@ -13,6 +13,12 @@
 								group: 'true'
 							}]
 						}">
+						 	<headerToolbar>
+								<Toolbar>
+									<ToolbarSpacer />
+									<SearchField id="searchField" width="auto" search=".onFilterProducts" />
+								</Toolbar>
+            				</headerToolbar>
 							<columns>
 								<Column hAlign="Center">
 									<Label text="Id"/>
@@ -49,7 +55,7 @@
 												}
 												}" 
 											wrapping="false"/>
-										<Text text="{ProductsModel>Price}" wrapping="false"/>
+										<Text text="R$ {ProductsModel>Price}" wrapping="false"/>
 									</cells>
 								</ColumnListItem>
 							</items>

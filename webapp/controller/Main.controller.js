@@ -1,6 +1,8 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function (Controller, Filter, FilterOperator) {
 	"use strict";
 	return Controller.extend("com.itsgroup.exOdata.controller.Main", {
 		onInit () {
@@ -17,6 +19,18 @@ sap.ui.define([
 				error: (error) => {
 				}
 			})
+		},
+
+		onFilterProducts: function(oEvent) {
+			var aFilter = [];
+			var sQuery = oEvent.getParameter("query"); //Parametro de busca
+			if (sQuery) {
+				aFilter.push(new Filter("Name", FilterOperator.Contains, sQuery));
+			}
+
+			var oTable = this.byId("table");
+			var oBinding = oTable.getBinding("items");
+			oBinding.filter(aFilter);
 		},
 		populateTable(data){
 			const model = new sap.ui.model.json.JSONModel();
