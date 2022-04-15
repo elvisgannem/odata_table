@@ -1,0 +1,51 @@
+<mvc:View controllerName="com.itsgroup.exOdata.controller.Main" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+					<!-- items="{ProductsModel>/} -->
+						<Table sticky="ColumnHeaders" items="{
+							path: 'ProductsModel>/',
+							sorter: [
+							{
+								path: 'Name',
+								descending: false,
+								group: 'true'
+							}]
+						}">
+							<columns>
+								<Column hAlign="Center">
+									<Label text="Id"/>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Nome"/>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Descrição"/>
+								</Column>
+								<Column  hAlign="Center">
+									<Label text="Avaliação"/>
+								</Column>
+								<Column  hAlign="Center">
+									<Label text="Preço"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle" type="Navigation">
+									<cells>
+										<Text text="{ProductsModel>ID}" wrapping="false"/>
+										<Text text="{ProductsModel>Name}" wrapping="false"/>
+										<Text text="{ProductsModel>Description}" wrapping="false"/>
+										<Text text="{ProductsModel>Rating}" wrapping="false"/>
+										<Text text="{ProductsModel>Price}" wrapping="false"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
