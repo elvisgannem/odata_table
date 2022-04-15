@@ -4,7 +4,6 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-					<!-- items="{ProductsModel>/} -->
 						<Table sticky="ColumnHeaders" items="{
 							path: 'ProductsModel>/',
 							sorter: [
@@ -37,7 +36,7 @@
 										<Text text="{ProductsModel>ID}" wrapping="false"/>
 										<Text text="{ProductsModel>Name}" wrapping="false"/>
 										<Text text="{ProductsModel>Description}" wrapping="false"/>
-										<Text text="{ProductsModel>Rating}" wrapping="false"/>
+										<RatingIndicator value="{ProductsModel>Rating}" wrapping="false"/>
 										<Text text="{ProductsModel>Price}" wrapping="false"/>
 									</cells>
 								</ColumnListItem>
