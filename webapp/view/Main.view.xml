@@ -12,7 +12,9 @@
 								descending: false,
 								group: 'true'
 							}]
-						}">
+						}"
+						mode="SingleSelectMaster"
+						select="openDialog">
 						 	<headerToolbar>
 								<Toolbar>
 									<ToolbarSpacer />
@@ -21,13 +23,13 @@
             				</headerToolbar>
 							<columns>
 								<Column hAlign="Center">
-									<Label text="Id"/>
-								</Column>
-								<Column hAlign="Center">
 									<Label text="Nome"/>
 								</Column>
 								<Column hAlign="Center">
 									<Label text="Descrição"/>
+								</Column>
+								<Column hAlign="Center">
+									<Label text="Categoria"/>
 								</Column>
 								<Column  hAlign="Center">
 									<Label text="Avaliação"/>
@@ -42,9 +44,9 @@
 							<items>
 								<ColumnListItem vAlign="Middle" type="Navigation">
 									<cells>
-										<Text text="{ProductsModel>ID}" wrapping="false"/>
 										<Text text="{ProductsModel>Name}" wrapping="false"/>
 										<Text text="{ProductsModel>Description}" wrapping="false"/>
+										<Text text="{ProductsModel>Category/Name}" wrapping="false"/>
 										<RatingIndicator value="{ProductsModel>Rating}" wrapping="false"/>
 										<Text 
 											text="{

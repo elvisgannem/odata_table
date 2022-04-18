@@ -11,8 +11,11 @@ sap.ui.define([
 			const url = 'https://cors-anywhere.herokuapp.com/https://services.odata.org/V2/OData/OData.svc';
 			const model = new sap.ui.model.odata.v2.ODataModel(url);
 			const ctrl = this;
-			
+
 			model.read('/Products',{
+				urlParameters: {
+					"$expand": "Category"
+				},
 				success: (data) =>{
 					ctrl.populateTable(data.results)
 				},
@@ -32,6 +35,26 @@ sap.ui.define([
 			var oBinding = oTable.getBinding("items");
 			oBinding.filter(aFilter);
 		},
+
+		openDialog: function(oEvent) {
+			const dialog = new sap.m.Dialog({
+				title: "Dados de Fornecedor",
+				contentWidth: "400px",
+				contentHeight: "200px",
+				resizable: false,
+				endButton: new sap.m.Button({
+					text: "Ok",
+					press: function(){
+						dialog.close();
+						return false;
+					}
+				}),
+			});
+
+			this.getView().addDependent(dialog);
+			dialog.open();
+		},
+
 		populateTable(data){
 			const model = new sap.ui.model.json.JSONModel();
 			model.setData(data);
